@@ -35,14 +35,14 @@ do
                         if [  -f "$FILE_OLD" ]
                                 then # This will delete the A Entry of the Subdomain to the old IP Adress
                                 echo -e "${COLOR1}Delete linking A-Entry of ${COLOR2} ${SUBDOMAIN}.${DOMAIN} ${COLOR9}"
-                                plesk bin dns --del ${DOMAIN} -a $SUBDOMAIN -ip $IP_OLD
+                                /usr/local/psa/bin/dns --del ${DOMAIN} -a $SUBDOMAIN -ip $IP_OLD
                         else
                                 echo -e "${COLOR1}No OLD IP File - so I do not know any Entry to delete for ${COLOR2} ${SUBDOMAIN}.${DOMAIN} ${COLOR1}yet${COLOR9}"
                         fi
 
                         echo -e "${COLOR1}Recreate Linking ${COLOR2} ${SUBDOMAIN}.${DOMAIN} ${COLOR9}"
                         # Replace Old IP by new IP
-                        if plesk bin dns --add ${DOMAIN} -a ${SUBDOMAIN} -ip ${IP_NEW}
+                        if /usr/local/psa/bin/dns --add ${DOMAIN} -a ${SUBDOMAIN} -ip ${IP_NEW}
                                 then cp $FILE_NEW $FILE_OLD
                         else
                                 echo -e " - ${RED} FAILED!"
