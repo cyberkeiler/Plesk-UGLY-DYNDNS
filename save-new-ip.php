@@ -11,6 +11,8 @@
 	}
 
 	function saveip($_subdomain){
-		file_put_contents ("../protectedfolder/".$_subdomain."_NEWIP.txt", $_SERVER['REMOTE_ADDR']);
+		//Please insert the link to your folder here (writable by the webserver!)
+		$folder = "../yourIPfolder/";
+		file_put_contents ($folder."/".$_subdomain."_NEWIP.txt", $_SERVER['REMOTE_ADDR']);
 	}
 ?>
