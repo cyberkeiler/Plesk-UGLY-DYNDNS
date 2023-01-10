@@ -11,6 +11,10 @@ dirty solution to connect subdomain to dynamic IPs
 Let a cronjob etc. call the PHP file with the Token as a GET (do it with HTTPS!)
 
     wget -qO- --no-check-certificate https://yourdomain.com/save-new-ip.php?token=token2-991a212d21b48891bac47e997 &> /dev/null
+
+To link both ipv4 and ipv6 entries do it two times for each ip version:
+    wget -qO- --no-check-certificate --inet4-only https://yourdomain.com/save-new-ip.php?token=token2-991a212d21b48891bac47e997 &> /dev/null    
+    wget -qO- --no-check-certificate --inet6-only https://yourdomain.com/save-new-ip.php?token=token2-991a212d21b48891bac47e997 &> /dev/null
     
 ## DNS updates
 Let a cronjob etc. call the Bash Script with the subdomain names as arguments
